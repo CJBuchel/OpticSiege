@@ -75,11 +75,14 @@ workspace "OpticSiege"										-- Solution name
 		-- [ PROJECT FILE CONFIG ] --
 		-----------------------------
 		local SrcDir = ROOT .. "test/"
+		local CppDir = SrcDir .. "cpp/"
+		local IncludeDir = SrcDir .. "include/"
+
 
 		-- Files --
 		files {
-			SrcDir .. "**.h", SrcDir .. "**.hpp", -- Headers
-			SrcDir .. "**.c", SrcDir .. "**.cpp", SrcDir .. "**.tpp", -- Src
+			IncludeDir .. "**.h", IncludeDir .. "**.hpp", -- Headers
+			CppDir .. "**.c", CppDir .. "**.cpp", CppDir .. "**.tpp", -- Src
 		}
 
 		-- Exclude from build --
@@ -90,13 +93,13 @@ workspace "OpticSiege"										-- Solution name
 
 		-- setup VS filters (virtual folders)
 		vpaths {
-			["Header Files/*"] = { SrcDir .. "**.h", SrcDir .. "**.hxx", SrcDir .. "**.hpp" },
-			["Source Files/*"] = { SrcDir .. "**.c", SrcDir .. "**.cxx", SrcDir .. "**.cpp" },
+			["Header Files/*"] = { IncludeDir .. "**.h", IncludeDir .. "**.hxx", IncludeDir .. "**.hpp" },
+			["Source Files/*"] = { CppDir .. "**.c", CppDir .. "**.cxx", CppDir .. "**.cpp" },
 		}
 
 		-- header locations
 		includedirs {
-			SrcDir -- Allow absolute include paths with src files and headers
+			IncludeDir -- Allow #includable from dir
 		}
 		
 		------------------------------
