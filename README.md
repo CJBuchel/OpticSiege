@@ -7,7 +7,7 @@ Small game engine for low end visual games, mostly a side project. (AKA Wrapper 
 1. Build setup
 	- This project uses premake to setup build for local operating system. To use premake first link the Premake/bin folder to you system path, or copy the folder to a different location for your own convenienve (unless you already have premake installed and linked)
 
-	- Once binaries are linked `cd` into `Premake/` folder in cmd and run `premake5 vs2019` to build solution and project files (they will apear in `Solution/` folder)
+	- Once binaries are linked, in cmd/terminal run `premake5 vs2019` to build solution and project files (they will apear in `Solution/` folder)
 
 	- For linux/mac run `./premake5 gmake` or `./premake5_mac gmake` instead.
 

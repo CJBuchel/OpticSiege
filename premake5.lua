@@ -74,7 +74,8 @@ workspace "OpticSiege"										-- Solution name
 		kind "ConsoleApp" -- "WindowApp" removes console
 		language "C++"
 		location (SolDir)
-		targetdir (OutputDir .. "bin_%{cfg.buildcfg}_%{cfg.platform}") -- output binary location
+		targetdir (BinDir .. "bin_%{cfg.buildcfg}_%{cfg.platform}") -- output binary location
+		objdir (ObjectDir)
 		targetname "test" -- name of executable
 
 		-----------------------------
