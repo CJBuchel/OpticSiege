@@ -1,7 +1,6 @@
 -- Root Engine Project --
 
-local ROOT = "../" -- This directory style works on all platforms, not just unix
-local SolDir = ROOT .. "Solution/" -- Directory for sultion files and project files for VS
+include "config.lua"
 
 ------------------------------------------
 ---------- [ WORKSPACE CONFIG ] ----------
@@ -24,8 +23,9 @@ workspace "OpticSiege"										-- Solution name
 		description = "clean software",
 		
 		execute = function()
-			print("Cleaning the Solution folder...")
-			os.rmdir(ROOT .. "./Solution")
+			print("Cleaning the output folders...")
+			os.rmdir(SolDir)
+			os.rmdir(OutputDir)
 			print("done.")
 		end
 	}
@@ -34,7 +34,7 @@ workspace "OpticSiege"										-- Solution name
 	-- [ COMPILER/LINKER CONFIG ] --
 	--------------------------------
 
-	flags "FatalWarnings" -- Warnings count as errors
+	-- flags "FatalWarnings" -- Warnings count as errors
 	warnings "Extra"
 
 	-- see 'filter' in wiki pages
@@ -62,13 +62,20 @@ workspace "OpticSiege"										-- Solution name
 	filter {} -- clear filter when not needed
 
 	------------------------
+	-- [ LIBRARY CONFIG ] --
+	------------------------
+
+	include "vendors/vendors.lua"
+
+	------------------------
 	-- [ PROJECT CONFIG ] --
 	------------------------
 	project "Test"
 		kind "ConsoleApp" -- "WindowApp" removes console
 		language "C++"
 		location (SolDir)
-		targetdir (SolDir .. "bin_%{cfg.buildcfg}_%{cfg.platform}") -- output binary location
+		targetdir (BinDir .. "bin_%{cfg.buildcfg}_%{cfg.platform}") -- output binary location
+		objdir (ObjectDir)
 		targetname "test" -- name of executable
 
 		-----------------------------
@@ -97,18 +104,22 @@ workspace "OpticSiege"										-- Solution name
 			["Source Files/*"] = { CppDir .. "**.c", CppDir .. "**.cxx", CppDir .. "**.cpp" },
 		}
 
-		-- header locations
-		includedirs {
-			IncludeDir -- Allow #includable from dir
-		}
 		
 		------------------------------
 		-- [ PROJECT DEPENDENCIES ] --
 		------------------------------
-		libdirs {
-			-- add dependencies (dirs) here
+		-- header locations --
+		includedirs {
+			IncludeDir,
+			"%{vendors.GLFW}"
 		}
-
+		
 		links {
 			-- add dependencies (libs) here
+			"GLFW",
+			"opengl32.lib"
+		}
+
+		libdirs {
+			-- add dependencies (dirs) here
 		}
