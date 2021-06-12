@@ -16,6 +16,19 @@ workspace "OpticSiege"										-- Solution name
 	local project_action = "UNDEFINED"
 	if _ACTION ~= null then project_action = _ACTION end
 
+	------------------------------
+	-- [ CLEAN OUTPUT FOLDERS ] --
+	------------------------------
+	newaction {
+		trigger = "clean",
+		description = "clean software",
+		
+		execute = function()
+			print("Cleaning the Solution folder...")
+			os.rmdir(ROOT .. "./Solution")
+			print("done.")
+		end
+	}
 
 	--------------------------------
 	-- [ COMPILER/LINKER CONFIG ] --
