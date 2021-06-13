@@ -51,11 +51,11 @@ workspace "OpticSiege"										-- Solution name
 		linkoptions { "/ignore:4099" } -- ignore library pdb warnings in debug
 
 	-- building in linux/makefiles --
-	filter { "action:gmake2" }
+	filter { "action:gmake" }
 		cppdialect "C++20"
 
 	-- building in mac/makefiles --
-	filter { "system:macosx", "action:gmake2" }
+	filter { "system:macosx", "action:gmake" }
 		cppdialect "C++20"
 		toolset "clang"
 
@@ -114,11 +114,18 @@ workspace "OpticSiege"										-- Solution name
 			"%{vendors.GLFW}"
 		}
 		
-		links {
-			-- add dependencies (libs) here
-			"GLFW",
-			"opengl32.lib"
-		}
+
+		if os.host() == "windows" then
+			links {
+				"GLFW",
+				"opengl32.lib"
+			}
+		else
+			links {
+				"GLFW"
+			}
+		end
+				
 
 		libdirs {
 			-- add dependencies (dirs) here
