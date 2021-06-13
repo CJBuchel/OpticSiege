@@ -51,11 +51,11 @@ workspace "OpticSiege"										-- Solution name
 		linkoptions { "/ignore:4099" } -- ignore library pdb warnings in debug
 
 	-- building in linux/makefiles --
-	filter { "action:gmake" }
+	filter { "action:gmake2" }
 		cppdialect "C++20"
 
 	-- building in mac/makefiles --
-	filter { "system:macosx", "action:gmake" }
+	filter { "system:macosx", "action:gmake2" }
 		cppdialect "C++20"
 		toolset "clang"
 
