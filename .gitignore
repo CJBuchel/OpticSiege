@@ -1,6 +1,8 @@
 # ignore main solution folder (built with premake)
 Solution/
 build/
+# Do not ignore Premake and it's binaries
+!Premake/
 
 # User-specific files
 *.rsuser
