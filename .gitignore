@@ -2,7 +2,7 @@
 Solution/
 build/
 # Do not ignore Premake and it's binaries
-!Premake/**
+!Premake/*
 
 # User-specific files
 *.rsuser
