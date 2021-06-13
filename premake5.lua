@@ -1,12 +1,14 @@
 -- Root Engine Project --
 
 include "config.lua"
+include "dependencies.lua"
 
 ------------------------------------------
 ---------- [ WORKSPACE CONFIG ] ----------
 ------------------------------------------
 
 workspace "OpticSiege"										-- Solution name
+	architecture "x86_64"										-- Default architecture we want
 	configurations { "Debug", "Release" } 	-- General config mode in VS
 	platforms			 { "x64", "x32" }					-- Dropdown platforms in VS
 	location (SolDir)												-- Location for solution file
@@ -33,6 +35,9 @@ workspace "OpticSiege"										-- Solution name
 	--------------------------------
 	-- [ COMPILER/LINKER CONFIG ] --
 	--------------------------------
+	
+	include "vendors/glfw.lua"
+
 
 	-- flags "FatalWarnings" -- Warnings count as errors
 	warnings "Extra"
@@ -46,26 +51,21 @@ workspace "OpticSiege"										-- Solution name
 
 	-- building in windows/VS --
 	filter { "system:windows", "action:vs" }
-		cppdialect "C++20"
+		cppdialect "C++17"
 		flags { "MultiProcessorCompile", "NoMinimalRebuild" }
 		linkoptions { "/ignore:4099" } -- ignore library pdb warnings in debug
 
 	-- building in linux/makefiles --
 	filter { "action:gmake" }
-		cppdialect "C++20"
+		cppdialect "C++17"
 
 	-- building in mac/makefiles --
 	filter { "system:macosx", "action:gmake" }
-		cppdialect "C++20"
+		cppdialect "C++17"
 		toolset "clang"
 
 	filter {} -- clear filter when not needed
 
-	------------------------
-	-- [ LIBRARY CONFIG ] --
-	------------------------
-
-	include "vendors/vendors.lua"
 
 	------------------------
 	-- [ PROJECT CONFIG ] --
@@ -114,17 +114,28 @@ workspace "OpticSiege"										-- Solution name
 			"%{vendors.GLFW}"
 		}
 		
+		links { "GLFW" }
 
-		if os.host() == "windows" then
-			links {
-				"GLFW",
-				"opengl32.lib"
-			}
-		else
-			links {
-				"GLFW"
-			}
-		end
+		filter "system:linux"
+			links { "dl", "pthread" }
+			defines { "_X11" }
+		
+		filter "system:windows"
+			links { "opengl32.lib" }
+			defines { "_WINDOWS" }
+			
+		-- if os.host() == "windows" then
+		-- 	links {
+		-- 		"GLFW",
+		-- 		"opengl32.lib"
+		-- 	}
+		-- else
+		-- 	links {
+		-- 		"GLFW",
+		-- 		"dl",
+		-- 		"pthread"
+		-- 	}
+		-- end
 				
 
 		libdirs {

@@ -1,6 +1,6 @@
 include "config.lua"
 
-project "glfw"
+project "GLFW"
 	kind "StaticLib"
 	language "C"
 	staticruntime "off"
@@ -9,8 +9,8 @@ project "glfw"
 	objdir (ObjectDir .. "/%{prj.name}")
 
 	files {
-		"glfw/include/GLFW/glfw3.h",
-		"glfw/include/GLFW/glfw3native.h",
+		-- "glfw/include/GLFW/glfw3.h",
+		-- "glfw/include/GLFW/glfw3native.h",
 		"glfw/src/glfw_config.h",
 		"glfw/src/context.c",
 		"glfw/src/init.c",
@@ -24,6 +24,7 @@ project "glfw"
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
+		staticruntime "On"
 
 		files {
 			"glfw/src/x11_init.c",
@@ -45,6 +46,8 @@ project "glfw"
 	-- WINDOWS --
 	filter "system:windows"
 		systemversion "latest"
+		staticruntime "On"
+
 		files {
 			"glfw/src/win32_init.c",
 			"glfw/src/win32_joystick.c",

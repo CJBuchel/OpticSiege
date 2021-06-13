@@ -14,4 +14,6 @@ namespace OPS_Test {
 	static void println(T var) {
 		std::cout << var << std::endl;
 	}
+
+
 };
