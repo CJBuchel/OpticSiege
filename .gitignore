@@ -1,9 +1,18 @@
-# ignore main solution folder (built with premake)
-Solution/
-build/
+# Ignore binary file
+**/build/
 # Do not ignore Premake and it's binaries
 !Premake/*
-!Premake/bin/*
+!Premake/bin/
+
+# Log files
+*.log
+
+# VS files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
 
 # User-specific files
 *.rsuser

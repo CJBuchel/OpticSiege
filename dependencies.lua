@@ -1,4 +1,4 @@
 -- Dependencies/Vendors
 
 vendors = {}
-vendors["GLFW"] = "vendors/glfw/include"
+vendors["GLFW"] = "%{wks.location}/vendors/glfw/include"
