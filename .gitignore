@@ -1,0 +1,22 @@
+# Ignore binary file
+**/build/
+**/bin/
+bin-obj/
+
+# Do not ignore Premake and it's binaries
+!Premake/bin/
+
+# Log files
+*.log
+
+# VS files
+.vs/
+**.sln
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
+
+# Make files
+*Makefile
+*makefile
+*.make
