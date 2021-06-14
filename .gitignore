@@ -20,3 +20,6 @@ bin-obj/
 *Makefile
 *makefile
 *.make
+
+# run config for unix
+conf_run.sh

@@ -44,6 +44,11 @@ project "Test"
 		links { "opengl32.lib" }
 		defines { "_WINDOWS" }
 
+	filter "system:linux"
+		systemversion "latest"
+		links { "dl", "pthread" }
+		defines { "_X11" }
+
 	
 	-- Build Config --
 	filter "configurations:Debug"
