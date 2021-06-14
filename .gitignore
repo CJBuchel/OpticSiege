@@ -1,7 +1,8 @@
 # Ignore binary file
 **/build/
+**/bin/
+
 # Do not ignore Premake and it's binaries
-!Premake/*
 !Premake/bin/
 
 # Log files
