@@ -9,6 +9,7 @@ if [ "$usingMac" = "y" ]; then
 	sudo cp ../Premake/bin/premake5_mac /bin/premake5
 else
 	echo "Using linux (assumed ubuntu)..."
+	sudo apt-get install libgl-dev
 	sudo cp ../Premake/bin/premake5 /bin/premake5
 fi
 

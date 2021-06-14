@@ -1,9 +1,6 @@
-include "config.lua"
-
-project "glfw"
+project "GLFW"
 	kind "StaticLib"
 	language "C"
-	staticruntime "off"
 
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
@@ -24,6 +21,7 @@ project "glfw"
 	filter "system:linux"
 		pic "On"
 		systemversion "latest"
+		staticruntime "On"
 
 		files {
 			"glfw/src/x11_init.c",
@@ -45,6 +43,8 @@ project "glfw"
 	-- WINDOWS --
 	filter "system:windows"
 		systemversion "latest"
+		staticruntime "On"
+
 		files {
 			"glfw/src/win32_init.c",
 			"glfw/src/win32_joystick.c",

@@ -1,4 +1,5 @@
-[submodule "vendors/glfw"]
-	path = vendors/glfw
+
+[submodule "vendors/GLFW/glfw"]
+	path = vendors/GLFW/glfw
 	url = https://github.com/glfw/glfw.git
 	branch = master
