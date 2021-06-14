@@ -16,8 +16,8 @@ workspace "OpticSiege"
 	}
 
 group "dependencies"
-	include "vendors/glfw.lua"
-	include "vendors/glad.lua"
+	include "vendors/GLFW"
+	include "vendors/GLAD"
 group ""
 
 include "Test"

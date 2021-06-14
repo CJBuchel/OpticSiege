@@ -2,4 +2,4 @@
 
 vendors = {}
 vendors["GLFW"] = (VendorDir .. "GLFW/glfw/include")
-vendors["GLAD"] = (VendorDir .. "GLAD/glad/include")
+vendors["GLAD"] = (VendorDir .. "GLAD/include")
