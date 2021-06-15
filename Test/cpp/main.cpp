@@ -7,9 +7,6 @@
 #include <string>
 #include <sstream>
 
-#include <filesystem>
-#include <unistd.h>
-
 static void glClearError() {
 	while (glGetError() != GL_NO_ERROR);
 }
@@ -180,9 +177,6 @@ int main() {
 	/**
 	 * Vertext shader
 	 */
-	char tmp[256];
-	getcwd(tmp, 256);
-	std::cout << "Current dir: " << tmp << std::endl;
 	ShaderProgramSources shaderSources = parseShader(RES_PATH "shaders/Basic.shader");
 
 	unsigned int shader = createShader(shaderSources.vertexSource, shaderSources.fragmentSource);
