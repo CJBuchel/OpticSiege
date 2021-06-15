@@ -18,11 +18,6 @@ project "Test"
 		CppDir .. "**.c", CppDir .. "**.cpp"
 	}
 
-	defines {
-		"_CRT_SECURE_NO_WARNINGS",
-		"GLFW_INCLUDE_NONE"
-	}
-
 	vpaths {
 		["Header Files/*"] = { IncludeDir .. "**.h", IncludeDir .. "**.hpp" },
 		["Source Files/*"] = { CppDir .. "*.c", CppDir .. ".cpp" }
@@ -30,13 +25,11 @@ project "Test"
 
 	includedirs {
 		IncludeDir,
-		"%{vendors.GLFW}",
-		"%{vendors.GLAD}"
+		"%{ROOT}/OpticSiege/src/include",
 	}
 
 	links {
-		"GLFW",
-		"GLAD"
+		"OpticSiege"
 	}
 
 	filter "system:windows"
@@ -52,11 +45,11 @@ project "Test"
 	
 	-- Build Config --
 	filter "configurations:Debug"
-		defines "TEST_DEBUG"
+		defines "OPS_DEBUG"
 		runtime "Debug"
 		symbols "on"
 	
 	filter "configurations:Release"
-		defines "TEST_RELEASE"
+		defines "OPS_RELEASE"
 		runtime "Release"
 		optimize "on"

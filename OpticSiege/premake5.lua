@@ -2,10 +2,13 @@ project "OpticSiege"
 	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "off"
 
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
+
+	pchheader "ops_pch.hpp"
+	pchsource "src/cpp/ops_pch.cpp"
 
 	-- File Locations --
 	local SrcDir = ROOT .. "OpticSiege/"
@@ -14,7 +17,7 @@ project "OpticSiege"
 
 	files {
 		IncludeDir .. "**.h", IncludeDir .. "**.hpp",
-		CppDir .. "**.c", CppDir .. "**.cpp"
+		CppDir .. "**.c", CppDir .. "**.cpp", CppDir .. "**.h", CppDir .. "**.hpp"
 	}
 
 	defines {

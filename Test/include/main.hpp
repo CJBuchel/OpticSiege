@@ -1,5 +1,6 @@
 #include <iostream>
 #include "Test_Macros.hpp"
+#include "OpticSiege.hpp"
 
 namespace OPS_Test {
 
@@ -15,6 +16,4 @@ namespace OPS_Test {
 	static void println(T var) {
 		std::cout << var << std::endl;
 	}
-
-
 };

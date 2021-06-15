@@ -1,18 +1,5 @@
-#include "main.hpp"
-
-// int main() {
-// 	std::cout << "Test" << std::endl;
-// 	OPS::OPS ops;
-// 	ops.test();
-// 	return 0;
-// }
-
-// #include <glad/glad.h>
-// #include <GLFW/glfw3.h>
-
-// #include <fstream>
-// #include <string>
-// #include <sstream>
+#include "ops_pch.hpp"
+#include "OpticSiege.hpp"
 
 static void glClearError() {
 	while (glGetError() != GL_NO_ERROR);
@@ -77,7 +64,7 @@ static unsigned int compileShader(unsigned int type, const std::string &source) 
 
 		GLCall(glGetShaderInfoLog(id, length, &length, message));
 		std::cout << "Failed to compile " << (type == GL_VERTEX_SHADER ? "vertex" : "fragment") << " shader!" << std::endl;
-		OPS_Test::println(message);
+		std::cout << message << std::endl;
 		GLCall(glDeleteShader(id));
 		return 0;
 	}
@@ -107,8 +94,7 @@ void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
 	GLCall(glViewport(0, 0, width, height));
 }
 
-int main() {
-	OPS_Test::println("Hello world from OPS");
+int OPS::OPS::test() {
 
 	/**
 	* GLFW Initialize
