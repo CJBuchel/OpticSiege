@@ -1,0 +1,4 @@
+[submodule "OpticSiege/vendors/GLFW/glfw"]
+	path = OpticSiege/vendors/GLFW/glfw
+	url = https://github.com/glfw/glfw.git
+	branch = master
