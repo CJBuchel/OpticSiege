@@ -24,5 +24,5 @@
 #endif
 
 #else // linux
-#define RES_PATH "../../../../Test/res/"
+#define RES_PATH "Test/res/" // ONLY WORKD IF USING RUN.SH
 #endif
