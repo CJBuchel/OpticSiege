@@ -1,5 +1,5 @@
-project "Test"
-	kind "ConsoleApp"
+project "OpticSiege"
+	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
 	staticruntime "on"
@@ -7,11 +7,10 @@ project "Test"
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
 
-
-	-- file locations --
-	local SrcDir = ROOT .. "Test/"
-	local CppDir = SrcDir .. "cpp/"
-	local IncludeDir = SrcDir .. "include/"
+	-- File Locations --
+	local SrcDir = ROOT .. "OpticSiege/"
+	local CppDir = SrcDir .. "src/cpp/"
+	local IncludeDir = SrcDir .. "src/include/"
 
 	files {
 		IncludeDir .. "**.h", IncludeDir .. "**.hpp",
@@ -25,7 +24,7 @@ project "Test"
 
 	vpaths {
 		["Header Files/*"] = { IncludeDir .. "**.h", IncludeDir .. "**.hpp" },
-		["Source Files/*"] = { CppDir .. "*.c", CppDir .. ".cpp" }
+		["Source FIles/*"] = { CppDir .. "*.c", CppDir .. ".cpp" }
 	}
 
 	includedirs {
@@ -52,11 +51,11 @@ project "Test"
 	
 	-- Build Config --
 	filter "configurations:Debug"
-		defines "TEST_DEBUG"
+		defines "OPS_DEBUG"
 		runtime "Debug"
 		symbols "on"
 	
 	filter "configurations:Release"
-		defines "TEST_RELEASE"
+		defines "OPS_RELEASE"
 		runtime "Release"
 		optimize "on"

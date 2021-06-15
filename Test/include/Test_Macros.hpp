@@ -15,11 +15,11 @@
 */
 #ifdef _MSC_VER // if vs
 
-#ifdef OPS_DEBUG // if debug
+#ifdef TEST_DEBUG // if debug
 #define RES_PATH "res/"
 #endif
 
-#ifdef OPS_RELEASE // if release
+#ifdef TEST_RELEASE // if release
 #define RES_PATH "../../../../Test/res/"
 #endif
 
