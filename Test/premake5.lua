@@ -57,6 +57,6 @@ project "Test"
 		symbols "on"
 	
 	filter "configurations:Release"
-		defines "OPS_Release"
+		defines "OPS_RELEASE"
 		runtime "Release"
 		optimize "on"

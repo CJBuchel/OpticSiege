@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Test_Macros.hpp"
 
 namespace OPS_Test {
 
