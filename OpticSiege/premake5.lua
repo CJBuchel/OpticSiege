@@ -7,17 +7,16 @@ project "OpticSiege"
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
 
-	pchheader "ops_pch.hpp"
-	pchsource "src/cpp/ops_pch.cpp"
+	-- pchheader "ops_pch.hpp"
+	-- pchsource "src/cpp/ops_pch.cpp"
 
-	-- File Locations --
-	local SrcDir = ROOT .. "OpticSiege/"
-	local CppDir = SrcDir .. "src/cpp/"
-	local IncludeDir = SrcDir .. "src/include/"
 
 	files {
-		IncludeDir .. "**.h", IncludeDir .. "**.hpp",
-		CppDir .. "**.c", CppDir .. "**.cpp", CppDir .. "**.h", CppDir .. "**.hpp"
+		-- Headers --
+		OpticSiegeDir .. "**.h", OpticSiegeDir .. "**.hpp",
+
+		-- Source Files --
+		OpticSiegeDir .. "**.c", OpticSiegeDir .. "**.cpp"
 	}
 
 	defines {
@@ -26,12 +25,17 @@ project "OpticSiege"
 	}
 
 	vpaths {
-		["Header Files/*"] = { IncludeDir .. "**.h", IncludeDir .. "**.hpp" },
-		["Source FIles/*"] = { CppDir .. "*.c", CppDir .. ".cpp" }
+		["Header Files/*"] = {
+			OpticSiegeDir .. "**.h", OpticSiegeDir .. "**.hpp" 
+		},
+
+		["Source FIles/*"] = {  
+			OpticSiegeDir .. "**.c", OpticSiegeDir .. "**.cpp" 
+		}
 	}
 
 	includedirs {
-		IncludeDir,
+		OpticSiegeDir,
 		"%{vendors.GLFW}",
 		"%{vendors.GLAD}"
 	}

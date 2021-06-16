@@ -13,6 +13,9 @@ newaction {
 	end
 }
 
+filter "system:windows"
+	defines { "OPS_PLATFORM_WINDOWS" }
+
 --------------------
 -- Main Workspace --
 --------------------

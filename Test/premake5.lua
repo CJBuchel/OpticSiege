@@ -25,10 +25,13 @@ project "Test"
 
 	includedirs {
 		IncludeDir,
-		"%{ROOT}/OpticSiege/src/include",
+		"%{VendorDir}",
+		"%{OpticSiegeDir}"
 	}
 
 	links {
+		"GLAD",
+		"GLFW",
 		"OpticSiege"
 	}
 
