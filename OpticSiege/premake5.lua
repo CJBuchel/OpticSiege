@@ -7,8 +7,8 @@ project "OpticSiege"
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
 
-	-- pchheader "ops_pch.hpp"
-	-- pchsource "src/cpp/ops_pch.cpp"
+	pchheader ("ops_pch.h")
+	pchsource (OpticSiegeDir .. "ops_pch.cpp")
 
 
 	files {

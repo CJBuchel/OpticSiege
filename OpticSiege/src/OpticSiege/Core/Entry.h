@@ -11,6 +11,9 @@ int main(int argc, char** argv) {
 	* Create startup and ending procedured + loggers and handlers
 	*/
 
+
+	OPS::Log::init("[Application Pre-Startup]");
+
 	OPS_CORE_PRINT_ERROR("YEET THE CHILD");
 	OPS_PRINT_INFO("...no, don't yeet the child");
 
@@ -18,6 +21,10 @@ int main(int argc, char** argv) {
 	* Create application (only supports 1)
 	*/
 	auto app = OPS::createApplication();
+	OPS::Log::setClientName("[" + app->getName() + "]");
+
+	OPS_CORE_PRINT_ERROR("YEET THE CHILD");
+	OPS_PRINT_INFO("...no, don't yeet the child");
 
 
 	/**

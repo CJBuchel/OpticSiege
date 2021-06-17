@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include "OpticSiege/Logging/Log.h"
 
 namespace OPS {

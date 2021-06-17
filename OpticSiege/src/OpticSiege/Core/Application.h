@@ -1,6 +1,5 @@
 #pragma once
 
-#include <iostream>
 #include "OpticSiege/Core/Core.h"
 
 namespace OPS {
@@ -9,11 +8,25 @@ namespace OPS {
 		char **args = nullptr;
 	};
 
+	/**
+	* Main application that runs inside engine
+	*/
 	class Application {
 	public:
 		Application(const std::string &name = "OpticSiege Application", ApplicationArgs args = ApplicationArgs());
 		virtual ~Application();
 		void run();
+
+		/**
+		* Getters
+		*/
+		std::string getName() {
+			return _name;
+		}
+
+		ApplicationArgs getArgs() {
+			return _args;
+		}
 
 	private:
 		std::string _name;

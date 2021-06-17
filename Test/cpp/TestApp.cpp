@@ -2,7 +2,7 @@
 
 class Test : public OPS::Application {
 public:
-	Test() {
+	Test() : OPS::Application("Test App") {
 	}
 
 	~Test() {
