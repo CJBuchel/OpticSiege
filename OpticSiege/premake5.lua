@@ -1,8 +1,8 @@
 project "OpticSiege"
-	kind "SharedLib"
+	kind "StaticLib"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "On"
+	staticruntime "on"
 
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
@@ -37,22 +37,18 @@ project "OpticSiege"
 	includedirs {
 		OpticSiegeDir,
 		"%{vendors.GLFW}",
-		"%{vendors.GLAD}"
+		"%{vendors.GLAD}",
+		"%{vendors.SPDLOG}"
 	}
 
 	links {
 		"GLFW",
-		"GLAD"
-	}
-
-	postbuildcommands {
-		("{COPY} %{cfg.buildtarget.relpath} " .. BinDir .. "/Test")
+		"GLAD",
+		"opengl32.lib"
 	}
 
 	filter "system:windows"
 		systemversion "latest"
-		links { "opengl32.lib" }
-		defines { "OPS_PLATFORM_WINDOWS", "OPS_BUILD_DLL" }
 
 	filter "system:linux"
 		systemversion "latest"

@@ -9,7 +9,7 @@ namespace OPS {
 		char **args = nullptr;
 	};
 
-	class OPS_API Application {
+	class Application {
 	public:
 		Application(const std::string &name = "OpticSiege Application", ApplicationArgs args = ApplicationArgs());
 		virtual ~Application();

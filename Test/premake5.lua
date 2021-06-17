@@ -2,7 +2,7 @@ project "Test"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "On"
+	staticruntime "on"
 
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
@@ -26,7 +26,8 @@ project "Test"
 	includedirs {
 		IncludeDir,
 		"%{VendorDir}",
-		"%{OpticSiegeDir}"
+		"%{OpticSiegeDir}",
+		"%{vendors.SPDLOG}"
 	}
 
 	links {

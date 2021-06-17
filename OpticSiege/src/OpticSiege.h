@@ -13,5 +13,5 @@
 #include "OpticSiege/Core/Entry.h"
 // ---------
 
-// IO
-#include "OpticSiege/IO/Print.h"
+// IO/Logging
+#include "OpticSiege/Logging/Print.h"

@@ -2,3 +2,8 @@
 	path = OpticSiege/vendors/GLFW/glfw
 	url = https://github.com/glfw/glfw.git
 	branch = master
+
+[submodule "OpticSiege\\vendors\\SPDLOG\\spdlog"]
+	path = OpticSiege\\vendors\\SPDLOG\\spdlog
+	url = https://github.com/gabime/spdlog
+	branch = master
