@@ -10,4 +10,4 @@ public:
 	}
 };
 
-OPS_CREATE(Test);
+OPS_CREATE_APPLICATION(Test);

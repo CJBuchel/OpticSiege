@@ -1,8 +1,9 @@
-#include "Application.h"
+#include "OpticSiege/Core/Application.h"
 
 namespace OPS {
-	Application::Application() {
-		
+	Application::Application(const std::string &name, ApplicationArgs args) {
+		_name = name;
+		_args = args;
 	}
 
 	Application::~Application() {

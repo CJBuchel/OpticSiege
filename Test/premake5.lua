@@ -2,7 +2,7 @@ project "Test"
 	kind "ConsoleApp"
 	language "C++"
 	cppdialect "C++17"
-	staticruntime "on"
+	staticruntime "On"
 
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
@@ -30,15 +30,13 @@ project "Test"
 	}
 
 	links {
-		"GLAD",
-		"GLFW",
 		"OpticSiege"
 	}
 
 	filter "system:windows"
 		systemversion "latest"
-		links { "opengl32.lib" }
-		defines { "_WINDOWS" }
+		-- links { "opengl32.lib" }
+		defines { "OPS_PLATFORM_WINDOWS" }
 
 	filter "system:linux"
 		systemversion "latest"

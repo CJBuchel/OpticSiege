@@ -1,18 +1,26 @@
 #pragma once
 
-#include "Core.h"
+#include <iostream>
+#include "OpticSiege/Core/Core.h"
 
 namespace OPS {
-	class Application {
-	 public:
-		Application();
-		virtual ~Application();
-
-		void run();
+	struct ApplicationArgs {
+		int count = 0;
+		char **args = nullptr;
 	};
+
+	class OPS_API Application {
+	public:
+		Application(const std::string &name = "OpticSiege Application", ApplicationArgs args = ApplicationArgs());
+		virtual ~Application();
+		void run();
+
+	private:
+		std::string _name;
+		ApplicationArgs _args;
+	};
+
+	Application *createApplication();
 };
 
-/**
-* Macro for app creation
-*/
-#define OPS_CREATE_APPLICATION()
+#define OPS_CREATE_APPLICATION(APP) OPS::Application *OPS::createApplication() { return new APP(); }
