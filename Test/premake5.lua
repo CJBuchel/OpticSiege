@@ -18,11 +18,6 @@ project "Test"
 		CppDir .. "**.c", CppDir .. "**.cpp"
 	}
 
-	defines {
-		"_CRT_SECURE_NO_WARNINGS",
-		"GLFW_INCLUDE_NONE"
-	}
-
 	vpaths {
 		["Header Files/*"] = { IncludeDir .. "**.h", IncludeDir .. "**.hpp" },
 		["Source Files/*"] = { CppDir .. "*.c", CppDir .. ".cpp" }
@@ -30,19 +25,19 @@ project "Test"
 
 	includedirs {
 		IncludeDir,
-		"%{vendors.GLFW}",
-		"%{vendors.GLAD}"
+		"%{VendorDir}",
+		"%{OpticSiegeDir}",
+		"%{vendors.SPDLOG}"
 	}
 
 	links {
-		"GLFW",
-		"GLAD"
+		"OpticSiege"
 	}
 
 	filter "system:windows"
 		systemversion "latest"
-		links { "opengl32.lib" }
-		defines { "_WINDOWS" }
+		-- links { "opengl32.lib" }
+		defines { "OPS_PLATFORM_WINDOWS" }
 
 	filter "system:linux"
 		systemversion "latest"
@@ -57,6 +52,6 @@ project "Test"
 		symbols "on"
 	
 	filter "configurations:Release"
-		defines "OPS_Release"
+		defines "OPS_RELEASE"
 		runtime "Release"
 		optimize "on"

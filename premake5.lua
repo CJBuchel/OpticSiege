@@ -36,8 +36,9 @@ workspace "OpticSiege"
 	}
 	
 group "dependencies"
-	include "vendors/GLFW"
-	include "vendors/GLAD"
+	include "OpticSiege/vendors/GLFW"
+	include "OpticSiege/vendors/GLAD"
 group ""
 
+include "OpticSiege"
 include "Test"

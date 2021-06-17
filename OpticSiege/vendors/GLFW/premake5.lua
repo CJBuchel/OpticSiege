@@ -1,6 +1,7 @@
 project "GLFW"
 	kind "StaticLib"
 	language "C"
+	staticruntime "on"
 
 	targetdir (BinDir .. "/%{prj.name}")
 	objdir (ObjectDir .. "/%{prj.name}")
@@ -19,9 +20,8 @@ project "GLFW"
 
 	-- LINUX --
 	filter "system:linux"
-		pic "On"
+		pic "on"
 		systemversion "latest"
-		staticruntime "On"
 
 		files {
 			"glfw/src/x11_init.c",
@@ -43,7 +43,6 @@ project "GLFW"
 	-- WINDOWS --
 	filter "system:windows"
 		systemversion "latest"
-		staticruntime "On"
 
 		files {
 			"glfw/src/win32_init.c",
