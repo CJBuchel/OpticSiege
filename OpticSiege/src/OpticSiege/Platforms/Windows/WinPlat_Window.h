@@ -29,6 +29,10 @@ namespace OPS {
 		void setVSync(bool enables);
 		bool isVSync() const;
 
+		virtual void *getNativeWindow() const {
+			return _window;
+		}
+
 	private:
 		GLFWwindow *_window;
 

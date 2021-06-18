@@ -26,6 +26,13 @@ namespace OPS {
 		Window &getWindow() {
 			return *_window;
 		}
+
+		/**
+		* Staticly get application
+		*/
+		static Application &get() {
+			return *_instance;
+		}
 		
 		/**
 		* On events (mouse, keyboard etc...)
@@ -50,7 +57,9 @@ namespace OPS {
 		}
 
 	private:
+		// Application
 		bool onWindowClose(WindowCloseEvent &e);
+		static Application *_instance;
 
 		// window
 		std::unique_ptr<Window> _window;
@@ -62,6 +71,7 @@ namespace OPS {
 
 		// layers
 		LayerStack _layerStack;
+
 	};
 
 	Application *createApplication();

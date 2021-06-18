@@ -20,6 +20,7 @@ public:
 	Test() : OPS::Application("Test App") {
 		OPS_PRINT_INFO("Test App constructed");
 		pushLayer(new ExampleLayer());
+		pushOverlay(new OPS::ImGuiLayer());
 	}
 
 	~Test() {

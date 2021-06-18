@@ -2,7 +2,12 @@
 #include "OpticSiege/Core/Application.h"
 
 namespace OPS {
+	Application *Application::_instance = nullptr;
+
+
 	Application::Application(const std::string &name, ApplicationArgs args) {
+		OPS_CORE_ASSERT(!_instance, "An application already exists. Cannot create another");
+		_instance = this;
 		_name = name;
 		_args = args;
 
