@@ -1,6 +1,7 @@
 #pragma once
 
 #include "OpticSiege/Core/Core.h"
+#include "OpticSiege/Events/ApplicationEvent.h"
 
 namespace OPS {
 	struct ApplicationArgs {

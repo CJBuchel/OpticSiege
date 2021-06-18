@@ -1,5 +1,6 @@
 #pragma once
 
+#include "ops_pch.h"
 #include "OpticSiege/Events/Event.h"
 
 namespace OPS {

@@ -30,7 +30,7 @@ namespace OPS {
 
 	#define OPS_PRINT(...) ::OPS::print(__VA__ARGS__)
 	#define OPS_PRINT_INFO(...) ::OPS::Log::getClientLogger()->info(__VA_ARGS__)
-	#define OPS_PRINT_ERROR(...) ::OPS::Log::geClienteLogger()->error(__VA_ARGS__)
+	#define OPS_PRINT_ERROR(...) ::OPS::Log::getClientLogger()->error(__VA_ARGS__)
 	#define OPS_PRINT_WARN(...) ::OPS::Log::getClientLogger()->warn(__VA_ARGS__)
 	#define OPS_PRINT_TRACE(...) ::OPS::Log::getClientLogger()->trace(__VA_ARGS__)
 #else

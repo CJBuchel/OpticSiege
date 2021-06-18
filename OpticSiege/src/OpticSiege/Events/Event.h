@@ -12,7 +12,7 @@ namespace OPS {
 		WINDOW_CLOSE, WINDOW_RESIZE, WINDOW_FOCUS, WINDOW_LOST_FOCUS, WINDOW_MOVED, // Window
 		APP_TICK, APP_UPDATE, APP_RENDER, // App
 		KEY_PRESSED, KEY_RELEASED, KEY_TYPED, // Keys
-		MOUSE_BUTTON_PRESSED, MOUSE_BUTTON_RELEASED, MOUSE_MOVED, MOUSE_SCROLLED // Mouse
+		MOUSE_BUTTON_PRESSED, MOUSE_BUTTON_RELEASED, MOUSE_MOVE, MOUSE_SCROLLED // Mouse
 	};
 
 	enum EventCategory {
@@ -24,7 +24,7 @@ namespace OPS {
 		EVENT_CATEGORY_MOUSE_BUTTON = BIT(4)
 	};
 
-#define EVENT_CLASS_TYPE(type) static EventType getStaticType() { return EventType::type; }\
+#define EVENT_CLASS_TYPE(type) static EventType getStaticType() { return type; }\
 		virtual EventType getEventType() const override { return getStaticType(); }\
 		virtual const char *getName() const override { return #type; }
 

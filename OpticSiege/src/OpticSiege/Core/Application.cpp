@@ -12,6 +12,9 @@ namespace OPS {
 	}
 
 	void Application::run() {
+		WindowResizeEvent e(1280, 720);
+
+		OPS_CORE_PRINT_TRACE(e);
 		while (true) {
 			
 		}

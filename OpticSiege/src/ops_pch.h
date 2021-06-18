@@ -16,3 +16,9 @@
 #include <vector>
 #include <unordered_map>
 #include <unordered_set>
+
+/**
+* OPS headers
+*/
+#include "OpticSiege/Core/Core.h"
+#include "OpticSiege/Logging/Print.h"
