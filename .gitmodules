@@ -7,3 +7,8 @@
 	path = OpticSiege\\vendors\\SPDLOG\\spdlog
 	url = https://github.com/gabime/spdlog
 	branch = master
+
+[submodule "OpticSiege\\vendors\\IMGUI\\imgui"]
+	path = OpticSiege\\vendors\\IMGUI\\imgui
+	url = https://github.com/ocornut/imgui.git
+	branch = master

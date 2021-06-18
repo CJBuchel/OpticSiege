@@ -38,12 +38,14 @@ project "OpticSiege"
 		OpticSiegeDir,
 		"%{vendors.GLFW}",
 		"%{vendors.GLAD}",
-		"%{vendors.SPDLOG}"
+		"%{vendors.SPDLOG}",
+		"%{vendors.IMGUI}"
 	}
 
 	links {
 		"GLFW",
 		"GLAD",
+		"IMGUI",
 		"opengl32.lib"
 	}
 
