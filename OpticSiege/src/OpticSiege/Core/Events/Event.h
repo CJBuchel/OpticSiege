@@ -58,7 +58,7 @@ namespace OPS {
 		template<typename T, typename F>
 		bool dispatch(const F &func) {
 			if (_event.getEventType() == T::getStaticType()) {
-				_event.handled |= func(static_cast<T &>_event);
+				_event.handled |= func(static_cast<T &>(_event));
 				return true;
 			}
 			return false;

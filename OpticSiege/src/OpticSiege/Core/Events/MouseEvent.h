@@ -1,12 +1,12 @@
 #pragma once
 
-#include "OpticSiege/Events/Event.h"
-#include "OpticSiege/Codes/MouseCodes.h"
+#include "OpticSiege/Core/Events/Event.h"
+#include "OpticSiege/Core/Codes/MouseCodes.h"
 
 namespace OPS {
-	class MouseMoveEvent : Event {
+	class MouseMovedEvent : public Event {
 	public:
-		MouseMoveEvent(const float x, const float y) : _mouseX(x), _mouseY(y) {
+		MouseMovedEvent(const float x, const float y) : _mouseX(x), _mouseY(y) {
 		}
 
 		float getX() const {
@@ -23,7 +23,7 @@ namespace OPS {
 			return ss.str();
 		}
 
-		EVENT_CLASS_TYPE(EventType::MOUSE_MOVED);
+		EVENT_CLASS_TYPE(EventType::MOUSE_MOVE);
 		EVENT_CLASS_CATEGORY(EventCategory::EVENT_CATEGORY_MOUSE | EventCategory::EVENT_CATEGORY_INPUT);
 
 	private:

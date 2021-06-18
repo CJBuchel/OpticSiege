@@ -1,7 +1,7 @@
 #pragma once
 
 #include "ops_pch.h"
-#include "OpticSiege/Events/Event.h"
+#include "OpticSiege/Core/Events/Event.h"
 
 namespace OPS {
 	class WindowResizeEvent : public Event {
