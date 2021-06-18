@@ -37,7 +37,6 @@ project "Test"
 	filter "system:windows"
 		systemversion "latest"
 		-- links { "opengl32.lib" }
-		defines { "OPS_PLATFORM_WINDOWS" }
 
 	filter "system:linux"
 		systemversion "latest"

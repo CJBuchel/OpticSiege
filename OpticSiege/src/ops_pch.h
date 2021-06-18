@@ -20,5 +20,4 @@
 /**
 * OPS headers
 */
-#include "OpticSiege/Core/Core.h"
-#include "OpticSiege/Logging/Print.h"
+#include "OpticSiege/Core/Logging/Print.h"
