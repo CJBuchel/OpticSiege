@@ -41,7 +41,7 @@ namespace OPS {
 	}
 
 	void Application::pushOverlay(Layer *layer) {
-		_layerStack.popOverlay(layer);
+		_layerStack.pushOverlay(layer);
 		layer->onAttach();
 	}
 
@@ -61,6 +61,8 @@ namespace OPS {
 
 	void Application::run() {
 		while (_running) {
+			GLCall(glClearColor(1, 0, 1, 1));
+			GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 			// Update layers
 			for (Layer *layer : _layerStack) {
@@ -68,7 +70,7 @@ namespace OPS {
 			}
 
 			auto [x, y] = Input::getMousePos();
-			OPS_CORE_PRINT_TRACE("{0}, {1}", x, y);
+			//OPS_CORE_PRINT_TRACE("{0}, {1}", x, y);
 
 			// imgui render
 			_imGuiLayer->begin();

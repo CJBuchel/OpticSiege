@@ -16,7 +16,7 @@ glm::mat4 camera(float Translate, glm::vec2 const &Rotate) {
 class ExampleLayer : public OPS::Layer {
 public:
 	ExampleLayer() : Layer("Example Layer") {
-		OPS_PRINT_INFO("Example layer created");
+		OPS_PRINT_INFO("Example layer Created");
 		auto cam = camera(5.0f, { 0.5f, 0.5f });
 	}
 
@@ -35,12 +35,12 @@ public:
 class Test : public OPS::Application {
 public:
 	Test() : OPS::Application("Test App") {
-		OPS_PRINT_INFO("Test App constructed");
+		OPS_PRINT_INFO("Test App Created");
 		pushLayer(new ExampleLayer());
 	}
 
 	~Test() {
-		OPS_PRINT_WARN("Test App deconstructed");
+		OPS_PRINT_WARN("Test App Destroyed");
 	}
 };
 
