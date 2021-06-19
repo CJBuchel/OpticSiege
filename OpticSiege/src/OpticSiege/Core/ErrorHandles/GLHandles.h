@@ -18,13 +18,7 @@
 /**
 * Log gl error "if error"
 */
-static bool glLogCall(const char *function, const char *file, int line) {
-	while (GLenum error = glGetError()) {
-		std::cout << "[OpenGL Error] (" << error << "): " << function << " file: " << file << std::endl;
-		return false;
-	}
-	return true;
-}
+static bool glLogCall(const char *function, const char *file, int line);
 
 /**
 * OpenGL caller

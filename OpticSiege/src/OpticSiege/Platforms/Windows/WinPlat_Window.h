@@ -1,10 +1,10 @@
 #pragma once
 
 #include "OpticSiege/Core/Window/Window.h"
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 
 #include "OpticSiege/Core/ErrorHandles/GLHandles.h"
+
+struct GLFWwindow;
 
 namespace OPS {
 	class WinPlat_Window : public Window {
@@ -28,6 +28,10 @@ namespace OPS {
 
 		void setVSync(bool enables);
 		bool isVSync() const;
+
+		virtual void *getNativeWindow() const {
+			return _window;
+		}
 
 	private:
 		GLFWwindow *_window;

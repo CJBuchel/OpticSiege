@@ -1,13 +1,29 @@
 #include "ops_pch.h"
 #include "OpticSiege/Core/Application.h"
 
+#include <glad/glad.h>
+
+#include "OpticSiege/Core/Input/Input.h"
+
+#include <glm/glm.hpp>
+
 namespace OPS {
+	Application *Application::_instance = nullptr;
+
+
 	Application::Application(const std::string &name, ApplicationArgs args) {
+		OPS_CORE_ASSERT(!_instance, "An application already exists. Cannot create another");
+		_instance = this;
 		_name = name;
 		_args = args;
 
+		// Abstract window
 		_window = std::unique_ptr<Window>(Window::create());
 		_window->setEventCallBack(OPS_BIND_EVENT_FN(Application::onEvent));
+
+		// ImGui
+		_imGuiLayer = new ImGuiLayer();
+		pushOverlay(_imGuiLayer);
 
 		/**
 		* Set the runner
@@ -25,7 +41,7 @@ namespace OPS {
 	}
 
 	void Application::pushOverlay(Layer *layer) {
-		_layerStack.popOverlay(layer);
+		_layerStack.pushOverlay(layer);
 		layer->onAttach();
 	}
 
@@ -45,11 +61,23 @@ namespace OPS {
 
 	void Application::run() {
 		while (_running) {
+			GLCall(glClearColor(1, 0, 1, 1));
+			GLCall(glClear(GL_COLOR_BUFFER_BIT));
 
 			// Update layers
 			for (Layer *layer : _layerStack) {
 				layer->onUpdate();
 			}
+
+			auto [x, y] = Input::getMousePos();
+			//OPS_CORE_PRINT_TRACE("{0}, {1}", x, y);
+
+			// imgui render
+			_imGuiLayer->begin();
+			for (Layer *layer : _layerStack) {
+				layer->onImGuiRender();
+			}
+			_imGuiLayer->end();
 
 			// update window
 			_window->onUpdate();

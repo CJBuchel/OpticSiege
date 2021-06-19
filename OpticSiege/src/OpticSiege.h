@@ -9,6 +9,11 @@
 #include "OpticSiege/Core/Core.h"
 #include "OpticSiege/Core/Application.h"
 #include "OpticSiege/Core/Layers/Layer.h"
+#include "OpticSiege/Core/Input/Input.h"
+
+
+// ImGui
+#include "OpticSiege/Core/ImGui/ImGuiLayer.h"
 
 
 // IO/Logging

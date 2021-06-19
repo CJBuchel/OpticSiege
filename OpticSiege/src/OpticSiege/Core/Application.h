@@ -4,6 +4,7 @@
 #include "OpticSiege/Core/Window/Window.h"
 #include "OpticSiege/Core/Events/AllEvents.h"
 #include "OpticSiege/Core/Layers/LayerStack.h"
+#include "OpticSiege/Core/ImGui/ImGuiLayer.h"
 
 namespace OPS {
 	struct ApplicationArgs {
@@ -25,6 +26,13 @@ namespace OPS {
 		*/
 		Window &getWindow() {
 			return *_window;
+		}
+
+		/**
+		* Staticly get application
+		*/
+		static Application &get() {
+			return *_instance;
 		}
 		
 		/**
@@ -50,10 +58,13 @@ namespace OPS {
 		}
 
 	private:
+		// Application
 		bool onWindowClose(WindowCloseEvent &e);
+		static Application *_instance;
 
 		// window
 		std::unique_ptr<Window> _window;
+		ImGuiLayer *_imGuiLayer;
 		bool _running = false;
 
 		// application args
@@ -62,6 +73,7 @@ namespace OPS {
 
 		// layers
 		LayerStack _layerStack;
+
 	};
 
 	Application *createApplication();
