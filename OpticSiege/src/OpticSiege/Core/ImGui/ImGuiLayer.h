@@ -1,5 +1,6 @@
 #pragma once
 #include "OpticSiege/Core/Layers/Layer.h"
+#include "OpticSiege/Core/Events/AllEvents.h"
 
 namespace OPS {
 	class ImGuiLayer : public Layer {
@@ -7,10 +8,9 @@ namespace OPS {
 		ImGuiLayer();
 		~ImGuiLayer();
 
-		//virtual void onUpdate() override; // temp
 		virtual void onAttach() override;
 		virtual void onDetach() override;
-		virtual void onEvent(Event &e) override;
+		virtual void onImGuiRender() override;
 
 		void begin();
 		void end();

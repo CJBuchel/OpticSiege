@@ -16,7 +16,10 @@ project "OpticSiege"
 		OpticSiegeDir .. "**.h", OpticSiegeDir .. "**.hpp",
 
 		-- Source Files --
-		OpticSiegeDir .. "**.c", OpticSiegeDir .. "**.cpp"
+		OpticSiegeDir .. "**.c", OpticSiegeDir .. "**.cpp",
+
+		VendorDir .. "GLM/glm/glm/**.hpp", 
+		VendorDir .. "GLM/glm/glm/**.inl"
 	}
 
 	defines {
@@ -39,7 +42,8 @@ project "OpticSiege"
 		"%{vendors.GLFW}",
 		"%{vendors.GLAD}",
 		"%{vendors.SPDLOG}",
-		"%{vendors.IMGUI}"
+		"%{vendors.IMGUI}",
+		"%{vendors.GLM}"
 	}
 
 	links {

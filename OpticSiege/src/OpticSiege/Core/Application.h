@@ -4,6 +4,7 @@
 #include "OpticSiege/Core/Window/Window.h"
 #include "OpticSiege/Core/Events/AllEvents.h"
 #include "OpticSiege/Core/Layers/LayerStack.h"
+#include "OpticSiege/Core/ImGui/ImGuiLayer.h"
 
 namespace OPS {
 	struct ApplicationArgs {
@@ -63,6 +64,7 @@ namespace OPS {
 
 		// window
 		std::unique_ptr<Window> _window;
+		ImGuiLayer *_imGuiLayer;
 		bool _running = false;
 
 		// application args

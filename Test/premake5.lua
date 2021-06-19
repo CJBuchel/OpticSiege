@@ -27,11 +27,12 @@ project "Test"
 		IncludeDir,
 		"%{VendorDir}",
 		"%{OpticSiegeDir}",
-		"%{vendors.SPDLOG}"
+		"%{vendors.SPDLOG}",
+		"%{vendors.GLM}"
 	}
 
 	links {
-		"OpticSiege"
+		"OpticSiege",
 	}
 
 	filter "system:windows"

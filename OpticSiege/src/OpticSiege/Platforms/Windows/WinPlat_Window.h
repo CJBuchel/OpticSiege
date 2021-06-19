@@ -1,10 +1,10 @@
 #pragma once
 
 #include "OpticSiege/Core/Window/Window.h"
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 
 #include "OpticSiege/Core/ErrorHandles/GLHandles.h"
+
+struct GLFWwindow;
 
 namespace OPS {
 	class WinPlat_Window : public Window {

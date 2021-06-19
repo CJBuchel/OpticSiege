@@ -5,6 +5,9 @@
 #include "OpticSiege/Core/Events/KeyEvent.h"
 #include "OpticSiege/Core/Events/MouseEvent.h"
 
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 
 namespace OPS {
 	static bool _GLFW_INITIALIZED = false;
@@ -44,8 +47,6 @@ namespace OPS {
 
 		_window = glfwCreateWindow((int)config.width, (int)config.height, _data.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(_window);
-		glfwSetWindowUserPointer(_window, &_data);
-		setVSync(true);
 
 		if (!_GLAD_INITIALIZED) {
 			int success = gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
@@ -53,6 +54,10 @@ namespace OPS {
 
 			_GLAD_INITIALIZED = true;
 		}
+		
+		glfwSetWindowUserPointer(_window, &_data);
+		setVSync(true);
+
 
 		/**
 		*	Set GLFW callbacks

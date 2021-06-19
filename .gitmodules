@@ -3,12 +3,17 @@
 	url = https://github.com/glfw/glfw.git
 	branch = master
 
-[submodule "OpticSiege\\vendors\\SPDLOG\\spdlog"]
-	path = OpticSiege\\vendors\\SPDLOG\\spdlog
+[submodule "OpticSiege/vendors/SPDLOG/spdlog"]
+	path = OpticSiege/vendors/SPDLOG/spdlog
 	url = https://github.com/gabime/spdlog
 	branch = master
 
-[submodule "OpticSiege\\vendors\\IMGUI\\imgui"]
-	path = OpticSiege\\vendors\\IMGUI\\imgui
+[submodule "OpticSiege/vendors/IMGUI/imgui"]
+	path = OpticSiege/vendors/IMGUI/imgui
 	url = https://github.com/ocornut/imgui.git
+	branch = docking
+	
+[submodule "OpticSiege/vendors/GLM/glm"]
+	path = OpticSiege/vendors/GLM/glm
+	url = https://github.com/g-truc/glm
 	branch = master

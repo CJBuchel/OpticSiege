@@ -1,6 +1,12 @@
 #include "ops_pch.h"
 #include "OpticSiege/Core/Application.h"
 
+#include <glad/glad.h>
+
+#include "OpticSiege/Core/Input/Input.h"
+
+#include <glm/glm.hpp>
+
 namespace OPS {
 	Application *Application::_instance = nullptr;
 
@@ -11,8 +17,13 @@ namespace OPS {
 		_name = name;
 		_args = args;
 
+		// Abstract window
 		_window = std::unique_ptr<Window>(Window::create());
 		_window->setEventCallBack(OPS_BIND_EVENT_FN(Application::onEvent));
+
+		// ImGui
+		_imGuiLayer = new ImGuiLayer();
+		pushOverlay(_imGuiLayer);
 
 		/**
 		* Set the runner
@@ -55,6 +66,16 @@ namespace OPS {
 			for (Layer *layer : _layerStack) {
 				layer->onUpdate();
 			}
+
+			auto [x, y] = Input::getMousePos();
+			OPS_CORE_PRINT_TRACE("{0}, {1}", x, y);
+
+			// imgui render
+			_imGuiLayer->begin();
+			for (Layer *layer : _layerStack) {
+				layer->onImGuiRender();
+			}
+			_imGuiLayer->end();
 
 			// update window
 			_window->onUpdate();
