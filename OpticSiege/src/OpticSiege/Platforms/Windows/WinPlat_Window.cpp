@@ -44,7 +44,6 @@ namespace OPS {
 		}
 
 		OPS_CORE_PRINT_INFO("GLFW initialized");
-
 		_window = glfwCreateWindow((int)config.width, (int)config.height, _data.title.c_str(), nullptr, nullptr);
 		glfwMakeContextCurrent(_window);
 
